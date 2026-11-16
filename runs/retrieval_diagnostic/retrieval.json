@@ -1,0 +1,35 @@
+{
+  "definition": "share of probes with >=1 parseable gold session whose gold sessions are ALL among the top-k retrieved sessions",
+  "sets": {
+    "simple": {
+      "n_probes": 129,
+      "mycelic": {
+        "recall@1": 0.31007751937984496,
+        "recall@3": 0.5271317829457365,
+        "recall@5": 0.6821705426356589,
+        "recall@8": 0.875968992248062
+      },
+      "naive_rag": {
+        "recall@1": 0.24806201550387597,
+        "recall@3": 0.46511627906976744,
+        "recall@5": 0.6821705426356589,
+        "recall@8": 0.8217054263565892
+      }
+    },
+    "complex": {
+      "n_probes": 226,
+      "mycelic": {
+        "recall@1": 0.3407079646017699,
+        "recall@3": 0.5265486725663717,
+        "recall@5": 0.6150442477876106,
+        "recall@8": 0.7123893805309734
+      },
+      "naive_rag": {
+        "recall@1": 0.3141592920353982,
+        "recall@3": 0.47345132743362833,
+        "recall@5": 0.5221238938053098,
+        "recall@8": 0.6150442477876106
+      }
+    }
+  }
+}
