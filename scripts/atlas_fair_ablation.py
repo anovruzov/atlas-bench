@@ -128,6 +128,7 @@ def call_verifier(model: Model, question: str, evidence: str,
 
 def run_arm(retriever: MycelicLoopAdapter, question: str, arm: str,
             answer_model: Model) -> dict[str, Any]:
+    wall_start = time.monotonic()
     full = arm.startswith("full_context")
     verify = arm in {"full_context_verify", "retrieve_verify", "retrieve_verify_retry"}
     retry = arm == "retrieve_verify_retry"
@@ -167,7 +168,8 @@ def run_arm(retriever: MycelicLoopAdapter, question: str, arm: str,
             rounds.append(step)
         break
     return {"prediction": answer, "rounds": rounds, "calls": calls,
-            "total_latency_s": round(sum(c["latency_s"] for c in calls), 4),
+            "end_to_end_latency_s": round(time.monotonic() - wall_start, 4),
+            "model_latency_s": round(sum(c["latency_s"] for c in calls), 4),
             "total_input_chars": sum(c["input_chars"] for c in calls),
             "total_output_chars": sum(c["output_chars"] for c in calls),
             "usage": {
@@ -310,8 +312,9 @@ def run(args: argparse.Namespace) -> None:
                     for arm in ordering:
                         answer = run_arm(retriever, question, arm, answer_model)
                         exact = normalize(gold) == normalize(answer["prediction"])
-                        semantic, judge_meta = judge_prediction(
-                            judge, question, gold, answer["prediction"]
+                        semantic, judge_meta = (
+                            judge_prediction(judge, question, gold, answer["prediction"])
+                            if judge is not None else (None, None)
                         )
                         answer["strict_exact_correct"] = exact
                         answer["semantic_correct"] = semantic
@@ -343,7 +346,10 @@ def run(args: argparse.Namespace) -> None:
             "strict_exact_accuracy": sum(r["strict_exact_correct"] for r in sub) / len(sub),
             "semantic_accuracy": sum(valid) / len(valid) if len(valid) == len(sub) else None,
             "semantic_scored": len(valid),
-            "mean_latency_s": statistics.mean(r["total_latency_s"] for r in sub),
+            "mean_end_to_end_latency_s": statistics.mean(r["end_to_end_latency_s"] for r in sub),
+            "median_end_to_end_latency_s": statistics.median(r["end_to_end_latency_s"] for r in sub),
+            "p95_end_to_end_latency_s": sorted(r["end_to_end_latency_s"] for r in sub)[max(0, int(0.95 * len(sub)) - 1)],
+            "mean_model_latency_s": statistics.mean(r["model_latency_s"] for r in sub),
             "mean_input_chars": statistics.mean(r["total_input_chars"] for r in sub),
             "usage_totals": {
                 k: sum(r["usage"][k] for r in sub)
