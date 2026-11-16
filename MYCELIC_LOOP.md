@@ -13,8 +13,35 @@ without changing the benchmark, its test sets, or its judge.
 | Reproducible harness: manifest, dev/held-out split, calibration gate, paired stats | **Built**; paired stats cross-checked against an independent audit script |
 | Audit of the published results (`audit/`) | **Done**; see `audit/AUDIT_PUBLISHED.md` |
 | Key-free retrieval diagnostic | **Run**; see `runs/retrieval_diagnostic/RETRIEVAL.md` |
-| Scored run with the published answer model and judge (GPT-4o via OpenRouter) | **Not run.** It needs an `OPENROUTER_API_KEY` |
-| Any claim that Mycelic beats Nebula on ATLAS | **None yet.** It needs the scored run, and the harness must print a BEATS verdict |
+| Single blind Opus judge over all published answers (`judge/`) | **Done**; ranking preserved, every system gains 2–7 points |
+| Opus-answered run: loop + naive_rag + full-context controls (`opus_run/`) | **Done**; loop scores 96.1% simple and 93.8% complex |
+| Paper with method, results and limitations | **Done**: `paper/atlas_mycelic.pdf` |
+| Scored run with the published answer model (GPT-4o via OpenRouter) | **Not run.** It needs an `OPENROUTER_API_KEY` |
+| Claim that Mycelic's *memory system* beats Nebula's | **Not made.** The answer models differ, and full-context Opus alone already beats published Nebula |
+
+### Results under one blind Opus judge
+
+| System | Simple | Complex |
+|---|---:|---:|
+| **Three-agent loop (Opus)** | **96.1** | **93.8** |
+| Full context, no memory (Opus) | 90.5 | 89.3 |
+| naive_rag (Opus) | 78.1 | 70.8 |
+| Nebula (published answers) | 87.3 | 76.9 |
+| Supermemory (published answers) | 79.5 | 67.6 |
+| naive_rag (published answers) | 73.2 | 61.4 |
+| Mem0 (published answers) | 57.7 | 53.9 |
+
+Paired differences on the 40 held-out files, using the same Opus answer model:
+
+| Loop vs | Simple | Complex |
+|---|---|---|
+| naive_rag | **+19.0** (CI +15.7 to +22.3) | **+21.1** (CI +17.3 to +24.7) |
+| Full context | **+7.5** (CI +1.5 to +14.8) | +4.2 (CI −1.6 to +11.6), not significant |
+
+On complex the loop reads about 31% of the full-history characters.
+
+- **Paired statistics:** `opus_run/COMPARISON.md`.
+- **Reproduce:** run `scripts/opus_packets.py` (index → packets → serve → assemble), then `scripts/opus_judge.py` (prepare → judge → apply), then `scripts/opus_compare.py`.
 
 ## The loop
 

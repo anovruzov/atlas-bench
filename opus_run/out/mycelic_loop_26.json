@@ -1,0 +1,21 @@
+{
+ "simple/benchmark_nebula_logistics_023|8": "No",
+ "complex/benchmark_complex_015|8": "Multi-cloud split: PrimaryDB2/AuthService6 on GCP vs PrimaryDB7/CacheLayer4 on Azure (cross-cloud latency)",
+ "simple/benchmark_nebula_healthtech_009|8": "Unknown",
+ "simple/benchmark_nebula_fintech_005|8": "Unknown",
+ "complex/benchmark_complex_008|8": "Unknown",
+ "complex/benchmark_complex_006|8": "Unknown",
+ "complex/benchmark_complex_047|8": "None (Oliver has no pet)",
+ "complex/benchmark_complex_004|8": "Unknown",
+ "complex/benchmark_complex_010|8": "Unknown",
+ "simple/benchmark_nebula_edtech_046|8": "Unknown",
+ "complex/benchmark_complex_038|8": "Unknown",
+ "complex/benchmark_complex_032|8": "Unknown",
+ "simple/benchmark_nebula_edtech_028|8": "The core repo's tech stack (TypeScript frontend, Python backend)",
+ "simple/benchmark_nebula_healthtech_032|8": "Unknown",
+ "simple/benchmark_nebula_edtech_026|8": "No specific brand (whatever dark roast)",
+ "simple/benchmark_nebula_fintech_007|8": "Unknown",
+ "simple/benchmark_nebula_edtech_015|8": "Unknown",
+ "complex/benchmark_complex_017|8": "Unknown",
+ "simple/benchmark_nebula_healthtech_045|8": "Unknown"
+}

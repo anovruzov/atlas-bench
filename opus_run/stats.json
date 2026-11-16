@@ -1,0 +1,79 @@
+{
+ "pillars": {
+  "simple": {
+   "mycelic": {
+    "world_modeling": 0.98989898989899,
+    "declarative_reasoning": 1.0,
+    "temporal_episodic": 0.8585858585858586,
+    "preference_learning": 0.9690721649484536,
+    "knowledge_boundaries": 0.9693877551020408,
+    "procedural_knowledge": 0.9789473684210527
+   },
+   "no_rag": {
+    "world_modeling": 0.9090909090909091,
+    "declarative_reasoning": 0.9207920792079208,
+    "temporal_episodic": 0.7878787878787878,
+    "preference_learning": 0.9072164948453608,
+    "knowledge_boundaries": 0.9693877551020408,
+    "procedural_knowledge": 0.9368421052631579
+   },
+   "naive_opus": {
+    "world_modeling": 0.7070707070707071,
+    "declarative_reasoning": 0.8910891089108911,
+    "temporal_episodic": 0.494949494949495,
+    "preference_learning": 0.8041237113402062,
+    "knowledge_boundaries": 0.9693877551020408,
+    "procedural_knowledge": 0.8210526315789474
+   },
+   "nebula": {
+    "world_modeling": 0.898989898989899,
+    "declarative_reasoning": 0.9801980198019802,
+    "temporal_episodic": 0.7070707070707071,
+    "preference_learning": 0.845360824742268,
+    "knowledge_boundaries": 0.9387755102040817,
+    "procedural_knowledge": 0.8631578947368421
+   }
+  },
+  "complex": {
+   "mycelic": {
+    "world_modeling": 0.9882352941176471,
+    "declarative_reasoning": 0.9789473684210527,
+    "temporal_episodic": 0.8674698795180723,
+    "preference_learning": 0.9733333333333334,
+    "knowledge_boundaries": 0.8777777777777778,
+    "procedural_knowledge": 0.9466666666666667
+   },
+   "no_rag": {
+    "world_modeling": 0.8823529411764706,
+    "declarative_reasoning": 0.8736842105263158,
+    "temporal_episodic": 0.8554216867469879,
+    "preference_learning": 0.9466666666666667,
+    "knowledge_boundaries": 0.9,
+    "procedural_knowledge": 0.9066666666666666
+   },
+   "naive_opus": {
+    "world_modeling": 0.8470588235294118,
+    "declarative_reasoning": 0.8315789473684211,
+    "temporal_episodic": 0.39759036144578314,
+    "preference_learning": 0.6266666666666667,
+    "knowledge_boundaries": 0.8555555555555555,
+    "procedural_knowledge": 0.64
+   },
+   "nebula": {
+    "world_modeling": 0.9294117647058824,
+    "declarative_reasoning": 0.9263157894736842,
+    "temporal_episodic": 0.40963855421686746,
+    "preference_learning": 0.6666666666666666,
+    "knowledge_boundaries": 0.9333333333333333,
+    "procedural_knowledge": 0.6933333333333334
+   }
+  }
+ },
+ "traces": 1092,
+ "round2": 212,
+ "verdicts": {
+  "retrieve": 212,
+  "accept": 878,
+  "revise": 2
+ }
+}

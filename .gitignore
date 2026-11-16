@@ -54,3 +54,9 @@ nebula_collection_ids.json
 # Opus run caches (rebuildable with scripts/opus_packets.py index)
 opus_run/index/
 opus_run/server_log.jsonl
+opus_run/batches/
+opus_run/index/
+opus_run/server_log.jsonl
+paper/*.aux
+paper/*.log
+paper/*.out

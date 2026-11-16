@@ -1,0 +1,9 @@
+{
+ "simple/benchmark_nebula_healthtech_029|11": "MedPulse2025!",
+ "simple/benchmark_nebula_fintech_034|11": "LedgerFlow2024!",
+ "simple/benchmark_nebula_fintech_030|11": "LedgerFlow2025!",
+ "simple/benchmark_nebula_logistics_037|11": "The complexity of maintaining a split Ruby/Elixir backend",
+ "complex/benchmark_complex_037|11": "It detected conflicting reports: some processes reporting v1.2.0 and others v2.0.0-beta",
+ "simple/benchmark_nebula_fintech_047|11": "No dentist reminder found in the active list",
+ "simple/benchmark_nebula_edtech_015|11": "To-do list"
+}
