@@ -1,0 +1,1927 @@
+{
+  "all_summary_issues": [],
+  "bootstrap": {
+    "complex/mem0": {
+      "accuracy": 0.47514910536779326,
+      "ci95": [
+        0.4408381197658045,
+        0.5116279069767442
+      ],
+      "clusters": 50,
+      "count": 503,
+      "score": 239
+    },
+    "complex/naive_rag": {
+      "accuracy": 0.5487077534791253,
+      "ci95": [
+        0.5076628352490421,
+        0.5916670604914934
+      ],
+      "clusters": 50,
+      "count": 503,
+      "score": 276
+    },
+    "complex/nebula": {
+      "accuracy": 0.709741550695825,
+      "ci95": [
+        0.6695459728028625,
+        0.7514679998610452
+      ],
+      "clusters": 50,
+      "count": 503,
+      "score": 357
+    },
+    "complex/supermemory": {
+      "accuracy": 0.610337972166998,
+      "ci95": [
+        0.5590523173932527,
+        0.6609856510015408
+      ],
+      "clusters": 50,
+      "count": 503,
+      "score": 307
+    },
+    "pooled/mem0": {
+      "accuracy": 0.5173992673992674,
+      "ci95": [
+        0.4898940183929683,
+        0.5454545454545454
+      ],
+      "clusters": 100,
+      "count": 1092,
+      "score": 565
+    },
+    "pooled/naive_rag": {
+      "accuracy": 0.6236263736263736,
+      "ci95": [
+        0.5945454117848286,
+        0.6531897254929777
+      ],
+      "clusters": 100,
+      "count": 1092,
+      "score": 681
+    },
+    "pooled/nebula": {
+      "accuracy": 0.7692307692307693,
+      "ci95": [
+        0.7411762107669924,
+        0.7963306941477106
+      ],
+      "clusters": 100,
+      "count": 1092,
+      "score": 840
+    },
+    "pooled/supermemory": {
+      "accuracy": 0.6877289377289377,
+      "ci95": [
+        0.6538091174885174,
+        0.7213114754098361
+      ],
+      "clusters": 100,
+      "count": 1092,
+      "score": 751
+    },
+    "simple/mem0": {
+      "accuracy": 0.5534804753820034,
+      "ci95": [
+        0.5149501661129569,
+        0.5912296129771665
+      ],
+      "clusters": 50,
+      "count": 589,
+      "score": 326
+    },
+    "simple/naive_rag": {
+      "accuracy": 0.6876061120543294,
+      "ci95": [
+        0.656093489148581,
+        0.7191780821917808
+      ],
+      "clusters": 50,
+      "count": 589,
+      "score": 405
+    },
+    "simple/nebula": {
+      "accuracy": 0.8200339558573854,
+      "ci95": [
+        0.7896551724137931,
+        0.8504201680672269
+      ],
+      "clusters": 50,
+      "count": 589,
+      "score": 483
+    },
+    "simple/supermemory": {
+      "accuracy": 0.7538200339558574,
+      "ci95": [
+        0.7186427902222979,
+        0.788496490988996
+      ],
+      "clusters": 50,
+      "count": 589,
+      "score": 444
+    }
+  },
+  "coverage_checks": {},
+  "judge_consistency": {
+    "distinct_type_gold_pred_triples_seen_more_than_once": 485,
+    "examples": [
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "unknown",
+        "n_scored0": 31,
+        "n_scored1": 34,
+        "pred_norm": "unknown",
+        "scored0_in": [
+          "complex/mem0",
+          "complex/naive_rag",
+          "complex/nebula",
+          "complex/supermemory",
+          "simple/mem0",
+          "simple/naive_rag",
+          "simple/nebula",
+          "simple/supermemory"
+        ],
+        "scored1_in": [
+          "complex/mem0",
+          "complex/naive_rag",
+          "complex/nebula",
+          "complex/supermemory",
+          "simple/mem0",
+          "simple/naive_rag",
+          "simple/nebula",
+          "simple/supermemory"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "ledgerflow2024",
+        "n_scored0": 1,
+        "n_scored1": 19,
+        "pred_norm": "ledgerflow2024",
+        "scored0_in": [
+          "simple/mem0"
+        ],
+        "scored1_in": [
+          "simple/mem0",
+          "simple/naive_rag",
+          "simple/nebula",
+          "simple/supermemory"
+        ]
+      },
+      {
+        "answer_type": "abstain",
+        "gold_norm": "no not mentioned",
+        "n_scored0": 8,
+        "n_scored1": 1,
+        "pred_norm": "no",
+        "scored0_in": [
+          "complex/mem0",
+          "complex/naive_rag",
+          "complex/supermemory"
+        ],
+        "scored1_in": [
+          "complex/supermemory"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "reminders",
+        "n_scored0": 3,
+        "n_scored1": 1,
+        "pred_norm": "reminder",
+        "scored0_in": [
+          "simple/naive_rag",
+          "simple/nebula",
+          "simple/supermemory"
+        ],
+        "scored1_in": [
+          "simple/mem0"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "multiple versions",
+        "n_scored0": 2,
+        "n_scored1": 2,
+        "pred_norm": "multiple versions simultaneously",
+        "scored0_in": [
+          "complex/mem0",
+          "complex/naive_rag"
+        ],
+        "scored1_in": [
+          "complex/nebula",
+          "complex/supermemory"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "pick up dry cleaning",
+        "n_scored0": 2,
+        "n_scored1": 2,
+        "pred_norm": "dry cleaning",
+        "scored0_in": [
+          "complex/supermemory"
+        ],
+        "scored1_in": [
+          "complex/nebula"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "12 00 pm",
+        "n_scored0": 1,
+        "n_scored1": 2,
+        "pred_norm": "noon",
+        "scored0_in": [
+          "simple/supermemory"
+        ],
+        "scored1_in": [
+          "simple/mem0",
+          "simple/naive_rag"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "data processing",
+        "n_scored0": 1,
+        "n_scored1": 1,
+        "pred_norm": "data processing parts",
+        "scored0_in": [
+          "simple/nebula"
+        ],
+        "scored1_in": [
+          "simple/mem0"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "company name year exclamation mark",
+        "n_scored0": 1,
+        "n_scored1": 1,
+        "pred_norm": "company name capitalized current year exclamation mark",
+        "scored0_in": [
+          "simple/nebula"
+        ],
+        "scored1_in": [
+          "simple/supermemory"
+        ]
+      },
+      {
+        "answer_type": "short_answer",
+        "gold_norm": "his cat luna",
+        "n_scored0": 1,
+        "n_scored1": 1,
+        "pred_norm": "luna",
+        "scored0_in": [
+          "complex/mem0"
+        ],
+        "scored1_in": [
+          "complex/nebula"
+        ]
+      }
+    ],
+    "probes_in_conflicting": 115,
+    "probes_in_those": 3412,
+    "triples_with_conflicting_scores": 10
+  },
+  "leniency": {
+    "complex/mem0": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 73,
+      "abstain_pass": 70,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.4194831013916501,
+      "accuracy_published": 0.47514910536779326,
+      "accuracy_substring_only_content_plus_judge_other": 0.43339960238568587,
+      "boolean_n": 18,
+      "boolean_pass": 7,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 9,
+      "content_multi_option_scored1": 8,
+      "content_probes": 412,
+      "content_scored1": 162,
+      "content_scored1_multi_option": 8,
+      "content_scored1_multi_option_without_gold": 1,
+      "nonabstain_abstained_but_scored1": 11,
+      "nonabstain_probes_answered_with_abstain_phrase": 175,
+      "scored0_exact_normalized_match": 4,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 4
+      },
+      "scored0_with_gold_substring": 7,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "short_answer": 28
+      },
+      "scored1_without_gold_substring": 28
+    },
+    "complex/naive_rag": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 73,
+      "abstain_pass": 69,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.47514910536779326,
+      "accuracy_published": 0.5487077534791253,
+      "accuracy_substring_only_content_plus_judge_other": 0.49105367793240556,
+      "boolean_n": 18,
+      "boolean_pass": 7,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 26,
+      "content_multi_option_scored1": 21,
+      "content_probes": 412,
+      "content_scored1": 200,
+      "content_scored1_multi_option": 21,
+      "content_scored1_multi_option_without_gold": 4,
+      "nonabstain_abstained_but_scored1": 8,
+      "nonabstain_probes_answered_with_abstain_phrase": 152,
+      "scored0_exact_normalized_match": 5,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 5
+      },
+      "scored0_with_gold_substring": 8,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "short_answer": 37
+      },
+      "scored1_without_gold_substring": 37
+    },
+    "complex/nebula": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 73,
+      "abstain_pass": 70,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.6123260437375746,
+      "accuracy_published": 0.709741550695825,
+      "accuracy_substring_only_content_plus_judge_other": 0.6222664015904572,
+      "boolean_n": 18,
+      "boolean_pass": 12,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 27,
+      "content_multi_option_scored1": 21,
+      "content_probes": 412,
+      "content_scored1": 275,
+      "content_scored1_multi_option": 21,
+      "content_scored1_multi_option_without_gold": 3,
+      "examples_abstain_pass_without_phrase": [],
+      "examples_false_negative": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_007.json",
+          "gold_answer": "v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-4"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_015.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_016.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-10"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_027.json",
+          "gold_answer": "v1.2.0",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-factual_recall-0"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_043.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-9"
+        }
+      ],
+      "examples_long": [],
+      "examples_multi": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_021.json",
+          "gold_answer": "Mixed signals",
+          "predicted_answer": "It's a bit mixed. I'm seeing telemetry from v1.2.0, but v2.0.0-beta is also appearing in the logs.",
+          "probe_id": "temporal_episodic-episode_reconstruction-5"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "Split between v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "Conflicting; both v1.2.0 and v2.0.0-beta are",
+          "probe_id": "declarative_reasoning-belief_revision-3"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_050.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0, v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-3"
+        }
+      ],
+      "examples_multi_all": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_001.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-1",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_002.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-constraint_propagation-1",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_005.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-1",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_007.json",
+          "gold_answer": "v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-4",
+          "score": 0
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_008.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-baseline_factual_recall-3",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_009.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-state_tracking-2",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_010.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-state_tracking-1",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_010.json",
+          "gold_answer": "Espresso",
+          "predicted_answer": "Coffee or espresso",
+          "probe_id": "preference_learning-preference_induction-0",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_011.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-5",
+          "score": 1
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_016.json",
+          "gold_answer": "v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "v1.2.0 and v2.0.0-beta",
+          "probe_id": "declarative_reasoning-belief_revision-5",
+          "score": 1
+        }
+      ],
+      "examples_nonabstain_abstained_scored1": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_006.json",
+          "gold_answer": "unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-7"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_006.json",
+          "gold_answer": "unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_015.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-7"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_016.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-11"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_021.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-9"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_037.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-1"
+        }
+      ],
+      "examples_scored1_without_gold": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_002.json",
+          "gold_answer": "Pick up dry cleaning",
+          "predicted_answer": "dry cleaning",
+          "probe_id": "temporal_episodic-episode_reconstruction-1",
+          "question": "Immediately after mentioning the strategy session with Charlotte, what personal task did the user request a reminder for?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_008.json",
+          "gold_answer": "AWS",
+          "predicted_answer": "Amazon Web Services",
+          "probe_id": "declarative_reasoning-fact_composition-2",
+          "question": "On which cloud platform is the database instance that is signalling version v2.0.0-beta hosted?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_015.json",
+          "gold_answer": "Canary testing",
+          "predicted_answer": "Canary deployment.",
+          "probe_id": "declarative_reasoning-belief_revision-4",
+          "question": "What is the confirmed operational strategy for LoadBalancer9's versioning, clarifying the initial ambiguity?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_017.json",
+          "gold_answer": "Challenging with a cat",
+          "predicted_answer": "Working from home with a cat can be challenging.",
+          "probe_id": "procedural_knowledge-lesson_extraction-10",
+          "question": "What general observation did the assistant make about the difficulty of working from home when discussing Will's situation?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_019.json",
+          "gold_answer": "Pick up dry cleaning",
+          "predicted_answer": "dry cleaning",
+          "probe_id": "temporal_episodic-episode_reconstruction-0",
+          "question": "What specific errand did the user ask to be reminded about for 5:30 PM?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_020.json",
+          "gold_answer": "To please James",
+          "predicted_answer": "To get on James's good side.",
+          "probe_id": "preference_learning-explicit_preferences-7",
+          "question": "Why did the user explicitly state they wanted to buy a toy for Luna?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_022.json",
+          "gold_answer": "Manually kill the beta instance",
+          "predicted_answer": "kill the beta process",
+          "probe_id": "procedural_knowledge-lesson_application-11",
+          "question": "What specific action did the user decide to take to resolve the jitter caused by the split configuration on LoadBalancer3?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_025.json",
+          "gold_answer": "GCP",
+          "predicted_answer": "Google Cloud Platform",
+          "probe_id": "declarative_reasoning-fact_composition-1",
+          "question": "On which cloud provider is the service hosted that is currently experiencing a version mismatch with a beta release?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_025.json",
+          "gold_answer": "dislikes it",
+          "predicted_answer": "Negative.",
+          "probe_id": "preference_learning-preference_induction-1",
+          "question": "Based on the user's comments about the infrastructure map, how do they feel about the current multi-cloud setup?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_025.json",
+          "gold_answer": "set a reminder",
+          "predicted_answer": "Reminder set",
+          "probe_id": "procedural_knowledge-tool_method_memory-1",
+          "question": "What specific action did the assistant perform when the user requested to be prompted about calling the dentist?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "Split between v1.2.0 and v2.0.0-beta",
+          "predicted_answer": "Conflicting; both v1.2.0 and v2.0.0-beta are",
+          "probe_id": "declarative_reasoning-belief_revision-3",
+          "question": "According to the latest system logs discussed, what is the version status of the second primary database?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8",
+          "question": "Which cloud provider is the company's email server hosted on?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_028.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-9",
+          "question": "What is the name of the pet owned by the Sales Lead named Liam?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_037.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-1",
+          "question": "What is the name of the pet belonging to the Product Designer named Lucas?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_complex_046.json",
+          "gold_answer": "GCP",
+          "predicted_answer": "Google Cloud Platform",
+          "probe_id": "world_modeling-relationship_mapping-2",
+          "question": "Which infrastructure provider hosts the database that Sophia is concerned about regarding latency?"
+        }
+      ],
+      "nonabstain_abstained_but_scored1": 11,
+      "nonabstain_probes_answered_with_abstain_phrase": 60,
+      "scored0_exact_normalized_match": 3,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 3
+      },
+      "scored0_with_gold_substring": 5,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "short_answer": 49
+      },
+      "scored1_without_gold_substring": 49
+    },
+    "complex/supermemory": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 73,
+      "abstain_pass": 61,
+      "abstain_pass_without_abstain_phrase": 1,
+      "accuracy_if_nogold_content_passes_zeroed": 0.5308151093439364,
+      "accuracy_published": 0.610337972166998,
+      "accuracy_substring_only_content_plus_judge_other": 0.5407554671968191,
+      "boolean_n": 18,
+      "boolean_pass": 11,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 28,
+      "content_multi_option_scored1": 18,
+      "content_probes": 412,
+      "content_scored1": 235,
+      "content_scored1_multi_option": 18,
+      "content_scored1_multi_option_without_gold": 3,
+      "examples_abstain_pass_without_phrase": [
+        {
+          "bench": "benchmark_complex_030.json",
+          "gold_answer": "No, not mentioned",
+          "predicted_answer": "No.",
+          "probe_id": "knowledge_boundaries-negative_knowledge-fallback",
+          "question": "Have I ever mentioned ski plans?"
+        }
+      ],
+      "nonabstain_abstained_but_scored1": 11,
+      "nonabstain_probes_answered_with_abstain_phrase": 98,
+      "scored0_exact_normalized_match": 3,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 3
+      },
+      "scored0_with_gold_substring": 5,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "short_answer": 40
+      },
+      "scored1_without_gold_substring": 40
+    },
+    "simple/mem0": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 83,
+      "abstain_pass": 80,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.44821731748726656,
+      "accuracy_published": 0.5534804753820034,
+      "accuracy_substring_only_content_plus_judge_other": 0.4567062818336163,
+      "boolean_n": 27,
+      "boolean_pass": 15,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 0,
+      "content_multi_option_scored1": 0,
+      "content_probes": 479,
+      "content_scored1": 231,
+      "content_scored1_multi_option": 0,
+      "content_scored1_multi_option_without_gold": 0,
+      "nonabstain_abstained_but_scored1": 7,
+      "nonabstain_probes_answered_with_abstain_phrase": 192,
+      "scored0_exact_normalized_match": 5,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 5
+      },
+      "scored0_with_gold_substring": 5,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "generation": 1,
+        "short_answer": 61
+      },
+      "scored1_without_gold_substring": 62
+    },
+    "simple/naive_rag": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 83,
+      "abstain_pass": 82,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.568760611205433,
+      "accuracy_published": 0.6876061120543294,
+      "accuracy_substring_only_content_plus_judge_other": 0.5789473684210527,
+      "boolean_n": 27,
+      "boolean_pass": 23,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 0,
+      "content_multi_option_scored1": 0,
+      "content_probes": 479,
+      "content_scored1": 300,
+      "content_scored1_multi_option": 0,
+      "content_scored1_multi_option_without_gold": 0,
+      "nonabstain_abstained_but_scored1": 6,
+      "nonabstain_probes_answered_with_abstain_phrase": 99,
+      "scored0_exact_normalized_match": 5,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 5
+      },
+      "scored0_with_gold_substring": 6,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "generation": 3,
+        "short_answer": 67
+      },
+      "scored1_without_gold_substring": 70
+    },
+    "simple/nebula": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 83,
+      "abstain_pass": 79,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.6400679117147708,
+      "accuracy_published": 0.8200339558573854,
+      "accuracy_substring_only_content_plus_judge_other": 0.6519524617996605,
+      "boolean_n": 27,
+      "boolean_pass": 20,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 0,
+      "content_multi_option_scored1": 0,
+      "content_probes": 479,
+      "content_scored1": 384,
+      "content_scored1_multi_option": 0,
+      "content_scored1_multi_option_without_gold": 0,
+      "examples_abstain_pass_without_phrase": [],
+      "examples_false_negative": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_devtools_035.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-0"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_devtools_035.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-1"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_026.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_036.json",
+          "gold_answer": "Liam",
+          "predicted_answer": "Liam's",
+          "probe_id": "preference_learning-preference_scope-6"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_021.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-1"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_003.json",
+          "gold_answer": "Data processing",
+          "predicted_answer": "data processing parts",
+          "probe_id": "world_modeling-relationship_mapping-0"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_logistics_016.json",
+          "gold_answer": "Dentist",
+          "predicted_answer": "call to the dentist",
+          "probe_id": "temporal_episodic-temporal_sequencing-5"
+        }
+      ],
+      "examples_long": [],
+      "examples_multi": [],
+      "examples_multi_all": [],
+      "examples_nonabstain_abstained_scored1": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_devtools_010.json",
+          "gold_answer": "Not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-10"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_026.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-9"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_021.json",
+          "gold_answer": "Unknown",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-0"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_003.json",
+          "gold_answer": "None",
+          "predicted_answer": "Unknown",
+          "probe_id": "preference_learning-explicit_preferences-0"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_045.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-8"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_045.json",
+          "gold_answer": "not mentioned",
+          "predicted_answer": "Unknown",
+          "probe_id": "knowledge_boundaries-negative_knowledge-9"
+        }
+      ],
+      "examples_scored1_without_gold": [
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_devtools_022.json",
+          "gold_answer": "Cofounders",
+          "predicted_answer": "Cofounder",
+          "probe_id": "world_modeling-relationship_mapping-0",
+          "question": "What is the professional relationship between the user and Ava?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_015.json",
+          "gold_answer": "Rain forecast",
+          "predicted_answer": "The forecast shows light showers in the afternoon.",
+          "probe_id": "temporal_episodic-causal_explanation-0",
+          "question": "Why did the assistant suggest the user bring a coat during the final conversation?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_031.json",
+          "gold_answer": "Python and TypeScript",
+          "predicted_answer": "Python, TypeScript",
+          "probe_id": "procedural_knowledge-tool_method_memory-0",
+          "question": "What two programming languages must be installed to set up the development environment for the LearnLoop Core project?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_043.json",
+          "gold_answer": "Python and TypeScript",
+          "predicted_answer": "Python, TypeScript",
+          "probe_id": "declarative_reasoning-fact_composition-0",
+          "question": "Which two programming languages are used for the LearnLoop core project's tech stack?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_edtech_050.json",
+          "gold_answer": "Updating documentation",
+          "predicted_answer": "update the documentation for the core project",
+          "probe_id": "temporal_episodic-episode_reconstruction-1",
+          "question": "What specific task was the user attempting to perform when they complained about their brain being 'foggy'?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_005.json",
+          "gold_answer": "Must support compiling both languages",
+          "predicted_answer": "supports compiling both",
+          "probe_id": "procedural_knowledge-lesson_extraction-0",
+          "question": "What specific requirement did the assistant note for the build environment regarding the hybrid codebase?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_005.json",
+          "gold_answer": "Compilation errors",
+          "predicted_answer": "Hitting errors compiling the main backend service",
+          "probe_id": "temporal_episodic-episode_reconstruction-0",
+          "question": "In the session where the user asked to add 'milk' to their list, what technical issue were they encountering?"
+        },
+        {
+          "answer_type": "generation",
+          "bench": "benchmark_nebula_fintech_014.json",
+          "gold_answer": "Do not rewrite everything",
+          "predicted_answer": "Modernize the codebase without a complete rewrite.",
+          "probe_id": "preference_learning-explicit_preferences-1",
+          "question": "What constraint does Charlotte explicitly prefer regarding the modernization of the core project's legacy code?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_034.json",
+          "gold_answer": "Java and Kotlin",
+          "predicted_answer": "Java, Kotlin",
+          "probe_id": "declarative_reasoning-fact_composition-2",
+          "question": "Based on the descriptions of an 'Oracle-owned language' and a 'JetBrains alternative', which two frameworks comprise the core project's hybrid environment?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_047.json",
+          "gold_answer": "No reminder found",
+          "predicted_answer": "I don't see a reminder for the dentist in your active list.",
+          "probe_id": "procedural_knowledge-tool_method_memory-0",
+          "question": "When the user asked if they had left a reminder for the dentist during the 'chaotic' morning, what was the system's finding?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_fintech_047.json",
+          "gold_answer": "Cofounders",
+          "predicted_answer": "Cofounder",
+          "probe_id": "world_modeling-relationship_mapping-0",
+          "question": "What is the professional relationship between the user and the person running late for the sync?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_002.json",
+          "gold_answer": "Company name, year, exclamation mark",
+          "predicted_answer": "Company name capitalized, current year, and an exclamation point.",
+          "probe_id": "procedural_knowledge-procedure_storage-0",
+          "question": "What is the three-part formula used to construct the MedPulse wifi password?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_healthtech_032.json",
+          "gold_answer": "Security protocols updated",
+          "predicted_answer": "Elijah updated security protocols.",
+          "probe_id": "temporal_episodic-causal_explanation-4",
+          "question": "Why was the user's laptop unable to auto-connect to the network in the morning?"
+        },
+        {
+          "answer_type": "generation",
+          "bench": "benchmark_nebula_logistics_025.json",
+          "gold_answer": "Company name, year, exclamation point",
+          "predicted_answer": "The company name capitalized, followed by the current year, and ending with an exclamation mark.",
+          "probe_id": "procedural_knowledge-procedure_storage-0",
+          "question": "According to the assistant's instructions, how should the guest wifi password be constructed?"
+        },
+        {
+          "answer_type": "short_answer",
+          "bench": "benchmark_nebula_logistics_037.json",
+          "gold_answer": "Coffee beans / Espresso beans",
+          "predicted_answer": "Coffee beans",
+          "probe_id": "preference_learning-preference_induction-0",
+          "question": "Based on the user's repeated shopping list requests, what type of beverage ingredient do they frequently consume?"
+        }
+      ],
+      "nonabstain_abstained_but_scored1": 6,
+      "nonabstain_probes_answered_with_abstain_phrase": 25,
+      "scored0_exact_normalized_match": 4,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 4
+      },
+      "scored0_with_gold_substring": 7,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "generation": 5,
+        "short_answer": 101
+      },
+      "scored1_without_gold_substring": 106
+    },
+    "simple/supermemory": {
+      "abstain_fail_with_abstain_phrase": 0,
+      "abstain_n": 83,
+      "abstain_pass": 79,
+      "abstain_pass_without_abstain_phrase": 0,
+      "accuracy_if_nogold_content_passes_zeroed": 0.6095076400679117,
+      "accuracy_published": 0.7538200339558574,
+      "accuracy_substring_only_content_plus_judge_other": 0.6162988115449916,
+      "boolean_n": 27,
+      "boolean_pass": 19,
+      "boolean_scored1_opposite_leading_polarity": 0,
+      "content_multi_option_n": 0,
+      "content_multi_option_scored1": 0,
+      "content_probes": 479,
+      "content_scored1": 346,
+      "content_scored1_multi_option": 0,
+      "content_scored1_multi_option_without_gold": 0,
+      "nonabstain_abstained_but_scored1": 7,
+      "nonabstain_probes_answered_with_abstain_phrase": 68,
+      "scored0_exact_normalized_match": 3,
+      "scored0_exact_normalized_match_by_type": {
+        "short_answer": 3
+      },
+      "scored0_with_gold_substring": 4,
+      "scored1_long_gt200": 0,
+      "scored1_long_gt200_without_gold": 0,
+      "scored1_without_gold_by_type": {
+        "generation": 1,
+        "short_answer": 84
+      },
+      "scored1_without_gold_substring": 85
+    }
+  },
+  "misc": {
+    "scoring_latency_ms": {
+      "complex/nebula": {
+        "max": 23597.002029418945,
+        "median": 2825.4053592681885,
+        "min": 2501.7435550689697,
+        "n": 503
+      }
+    }
+  },
+  "model_hints": {
+    "complex/mem0": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "complex/naive_rag": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "complex/nebula": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "complex/supermemory": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "simple/mem0": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "simple/naive_rag": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "simple/nebula": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    },
+    "simple/supermemory": {
+      "keys_matching_model_judge_llm": {},
+      "string_mentions": {}
+    }
+  },
+  "paired": {
+    "complex/nebula_vs_mem0": {
+      "both_correct": 208,
+      "both_wrong": 115,
+      "diff": 0.2345924453280318,
+      "diff_ci95_cluster_bootstrap": [
+        0.18864007699143612,
+        0.2802309375649474
+      ],
+      "mcnemar_exact_p": 1.0524840112299968e-19,
+      "n_common": 503,
+      "nebula_only_correct": 149,
+      "other_only_correct": 31
+    },
+    "complex/nebula_vs_naive_rag": {
+      "both_correct": 237,
+      "both_wrong": 107,
+      "diff": 0.1610337972166998,
+      "diff_ci95_cluster_bootstrap": [
+        0.1111111111111111,
+        0.21052631578947367
+      ],
+      "mcnemar_exact_p": 8.658876808353174e-11,
+      "n_common": 503,
+      "nebula_only_correct": 120,
+      "other_only_correct": 39
+    },
+    "complex/nebula_vs_supermemory": {
+      "both_correct": 253,
+      "both_wrong": 92,
+      "diff": 0.09940357852882704,
+      "diff_ci95_cluster_bootstrap": [
+        0.04970178926441352,
+        0.1510130792648551
+      ],
+      "mcnemar_exact_p": 8.548342922070617e-05,
+      "n_common": 503,
+      "nebula_only_correct": 104,
+      "other_only_correct": 54
+    },
+    "simple/nebula_vs_mem0": {
+      "both_correct": 286,
+      "both_wrong": 66,
+      "diff": 0.266553480475382,
+      "diff_ci95_cluster_bootstrap": [
+        0.21901528013582344,
+        0.3143375086800918
+      ],
+      "mcnemar_exact_p": 4.1334432745294366e-26,
+      "n_common": 589,
+      "nebula_only_correct": 197,
+      "other_only_correct": 40
+    },
+    "simple/nebula_vs_naive_rag": {
+      "both_correct": 351,
+      "both_wrong": 52,
+      "diff": 0.13242784380305603,
+      "diff_ci95_cluster_bootstrap": [
+        0.09230769230769231,
+        0.17166666666666666
+      ],
+      "mcnemar_exact_p": 1.0083233692439907e-08,
+      "n_common": 589,
+      "nebula_only_correct": 132,
+      "other_only_correct": 54
+    },
+    "simple/nebula_vs_supermemory": {
+      "both_correct": 397,
+      "both_wrong": 59,
+      "diff": 0.06621392190152801,
+      "diff_ci95_cluster_bootstrap": [
+        0.03,
+        0.1039209437133416
+      ],
+      "mcnemar_exact_p": 0.0009131976345915793,
+      "n_common": 589,
+      "nebula_only_correct": 86,
+      "other_only_correct": 47
+    }
+  },
+  "summary_checks": {
+    "complex/mem0": {
+      "adapter_type": "Mem0Adapter",
+      "file": "results/results_real_complex/results_mem0_complex_test_set_20251229_211903.json",
+      "generated_at": "2025-12-29T22:07:54.238028",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 503
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.958904109589041,
+            "count": 73,
+            "total": 70
+          },
+          "boolean": {
+            "accuracy": 0.3888888888888889,
+            "count": 18,
+            "total": 7
+          },
+          "generation": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          },
+          "short_answer": {
+            "accuracy": 0.39705882352941174,
+            "count": 408,
+            "total": 162
+          },
+          "verbatim": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.42105263157894735,
+            "count": 95,
+            "total": 40
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.8888888888888888,
+            "count": 90,
+            "total": 80
+          },
+          "preference_learning": {
+            "accuracy": 0.49333333333333335,
+            "count": 75,
+            "total": 37
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.24,
+            "count": 75,
+            "total": 18
+          },
+          "temporal_episodic": {
+            "accuracy": 0.21686746987951808,
+            "count": 83,
+            "total": 18
+          },
+          "world_modeling": {
+            "accuracy": 0.5411764705882353,
+            "count": 85,
+            "total": 46
+          }
+        },
+        "count": 503,
+        "overall_accuracy": 0.47514910536779326,
+        "total_score": 239
+      }
+    },
+    "complex/naive_rag": {
+      "adapter_type": "NaiveRAGAdapter",
+      "file": "results/results_real_complex/results_naive_rag_complex_test_set_20251229_201613.json",
+      "generated_at": "2025-12-29T21:17:17.571012",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 503
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.9452054794520548,
+            "count": 73,
+            "total": 69
+          },
+          "boolean": {
+            "accuracy": 0.3888888888888889,
+            "count": 18,
+            "total": 7
+          },
+          "generation": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          },
+          "short_answer": {
+            "accuracy": 0.49019607843137253,
+            "count": 408,
+            "total": 200
+          },
+          "verbatim": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.6947368421052632,
+            "count": 95,
+            "total": 66
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.8444444444444444,
+            "count": 90,
+            "total": 76
+          },
+          "preference_learning": {
+            "accuracy": 0.4266666666666667,
+            "count": 75,
+            "total": 32
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.37333333333333335,
+            "count": 75,
+            "total": 28
+          },
+          "temporal_episodic": {
+            "accuracy": 0.25301204819277107,
+            "count": 83,
+            "total": 21
+          },
+          "world_modeling": {
+            "accuracy": 0.6235294117647059,
+            "count": 85,
+            "total": 53
+          }
+        },
+        "count": 503,
+        "overall_accuracy": 0.5487077534791253,
+        "total_score": 276
+      }
+    },
+    "complex/nebula": {
+      "adapter_type": "NebulaAdapter",
+      "file": "results/results_real_complex/results_nebula_complex_test_set_20260107_111020.json",
+      "generated_at": "2026-01-07T13:08:16.706148",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 503
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "scoring_latency_ms",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.958904109589041,
+            "count": 73,
+            "total": 70
+          },
+          "boolean": {
+            "accuracy": 0.6666666666666666,
+            "count": 18,
+            "total": 12
+          },
+          "generation": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          },
+          "short_answer": {
+            "accuracy": 0.6715686274509803,
+            "count": 408,
+            "total": 274
+          },
+          "verbatim": {
+            "accuracy": 0.5,
+            "count": 2,
+            "total": 1
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.9052631578947369,
+            "count": 95,
+            "total": 86
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.9,
+            "count": 90,
+            "total": 81
+          },
+          "preference_learning": {
+            "accuracy": 0.5333333333333333,
+            "count": 75,
+            "total": 40
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.5733333333333334,
+            "count": 75,
+            "total": 43
+          },
+          "temporal_episodic": {
+            "accuracy": 0.3614457831325301,
+            "count": 83,
+            "total": 30
+          },
+          "world_modeling": {
+            "accuracy": 0.9058823529411765,
+            "count": 85,
+            "total": 77
+          }
+        },
+        "count": 503,
+        "overall_accuracy": 0.709741550695825,
+        "total_score": 357
+      }
+    },
+    "complex/supermemory": {
+      "adapter_type": "SupermemoryAdapter",
+      "file": "results/results_real_complex/results_supermemory_complex_test_set_20251229_192151.json",
+      "generated_at": "2025-12-29T20:13:40.098301",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 503
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.8356164383561644,
+            "count": 73,
+            "total": 61
+          },
+          "boolean": {
+            "accuracy": 0.6111111111111112,
+            "count": 18,
+            "total": 11
+          },
+          "generation": {
+            "accuracy": 0.0,
+            "count": 2,
+            "total": 0
+          },
+          "short_answer": {
+            "accuracy": 0.571078431372549,
+            "count": 408,
+            "total": 233
+          },
+          "verbatim": {
+            "accuracy": 1.0,
+            "count": 2,
+            "total": 2
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.6736842105263158,
+            "count": 95,
+            "total": 64
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.8,
+            "count": 90,
+            "total": 72
+          },
+          "preference_learning": {
+            "accuracy": 0.6,
+            "count": 75,
+            "total": 45
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.4266666666666667,
+            "count": 75,
+            "total": 32
+          },
+          "temporal_episodic": {
+            "accuracy": 0.46987951807228917,
+            "count": 83,
+            "total": 39
+          },
+          "world_modeling": {
+            "accuracy": 0.6470588235294118,
+            "count": 85,
+            "total": 55
+          }
+        },
+        "count": 503,
+        "overall_accuracy": 0.610337972166998,
+        "total_score": 307
+      }
+    },
+    "simple/mem0": {
+      "adapter_type": "Mem0Adapter",
+      "file": "results/results_real_simple/results_mem0_simple_test_set_20260104_194736.json",
+      "generated_at": "2026-01-04T20:41:23.597129",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 589
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.963855421686747,
+            "count": 83,
+            "total": 80
+          },
+          "boolean": {
+            "accuracy": 0.5555555555555556,
+            "count": 27,
+            "total": 15
+          },
+          "generation": {
+            "accuracy": 0.375,
+            "count": 8,
+            "total": 3
+          },
+          "short_answer": {
+            "accuracy": 0.4666666666666667,
+            "count": 450,
+            "total": 210
+          },
+          "verbatim": {
+            "accuracy": 0.8571428571428571,
+            "count": 21,
+            "total": 18
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.7920792079207921,
+            "count": 101,
+            "total": 80
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.9081632653061225,
+            "count": 98,
+            "total": 89
+          },
+          "preference_learning": {
+            "accuracy": 0.5154639175257731,
+            "count": 97,
+            "total": 50
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.4842105263157895,
+            "count": 95,
+            "total": 46
+          },
+          "temporal_episodic": {
+            "accuracy": 0.18181818181818182,
+            "count": 99,
+            "total": 18
+          },
+          "world_modeling": {
+            "accuracy": 0.43434343434343436,
+            "count": 99,
+            "total": 43
+          }
+        },
+        "count": 589,
+        "overall_accuracy": 0.5534804753820034,
+        "total_score": 326
+      }
+    },
+    "simple/naive_rag": {
+      "adapter_type": "NaiveRAGAdapter",
+      "file": "results/results_real_simple/results_naive_rag_simple_test_set_20260104_205320.json",
+      "generated_at": "2026-01-04T21:51:18.878739",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 589
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.9879518072289156,
+            "count": 83,
+            "total": 82
+          },
+          "boolean": {
+            "accuracy": 0.8518518518518519,
+            "count": 27,
+            "total": 23
+          },
+          "generation": {
+            "accuracy": 0.625,
+            "count": 8,
+            "total": 5
+          },
+          "short_answer": {
+            "accuracy": 0.6155555555555555,
+            "count": 450,
+            "total": 277
+          },
+          "verbatim": {
+            "accuracy": 0.8571428571428571,
+            "count": 21,
+            "total": 18
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.801980198019802,
+            "count": 101,
+            "total": 81
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.9489795918367347,
+            "count": 98,
+            "total": 93
+          },
+          "preference_learning": {
+            "accuracy": 0.7731958762886598,
+            "count": 97,
+            "total": 75
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.6421052631578947,
+            "count": 95,
+            "total": 61
+          },
+          "temporal_episodic": {
+            "accuracy": 0.3939393939393939,
+            "count": 99,
+            "total": 39
+          },
+          "world_modeling": {
+            "accuracy": 0.5656565656565656,
+            "count": 99,
+            "total": 56
+          }
+        },
+        "count": 589,
+        "overall_accuracy": 0.6876061120543294,
+        "total_score": 405
+      }
+    },
+    "simple/nebula": {
+      "adapter_type": "NebulaAdapter",
+      "file": "results/results_real_simple/results_nebula_simple_test_set_20260105_094750.json",
+      "generated_at": "2026-01-05T11:26:46.873540",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 589
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.9518072289156626,
+            "count": 83,
+            "total": 79
+          },
+          "boolean": {
+            "accuracy": 0.7407407407407407,
+            "count": 27,
+            "total": 20
+          },
+          "generation": {
+            "accuracy": 0.75,
+            "count": 8,
+            "total": 6
+          },
+          "short_answer": {
+            "accuracy": 0.7933333333333333,
+            "count": 450,
+            "total": 357
+          },
+          "verbatim": {
+            "accuracy": 1.0,
+            "count": 21,
+            "total": 21
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.9603960396039604,
+            "count": 101,
+            "total": 97
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.8979591836734694,
+            "count": 98,
+            "total": 88
+          },
+          "preference_learning": {
+            "accuracy": 0.8144329896907216,
+            "count": 97,
+            "total": 79
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.6842105263157895,
+            "count": 95,
+            "total": 65
+          },
+          "temporal_episodic": {
+            "accuracy": 0.6767676767676768,
+            "count": 99,
+            "total": 67
+          },
+          "world_modeling": {
+            "accuracy": 0.8787878787878788,
+            "count": 99,
+            "total": 87
+          }
+        },
+        "count": 589,
+        "overall_accuracy": 0.8200339558573854,
+        "total_score": 483
+      }
+    },
+    "simple/supermemory": {
+      "adapter_type": "SupermemoryAdapter",
+      "file": "results/results_real_simple/results_supermemory_simple_test_set_20260104_181156.json",
+      "generated_at": "2026-01-04T19:23:18.801011",
+      "issues": [],
+      "match_types": {
+        "llm_judge": 589
+      },
+      "probe_fields": [
+        "answer_type",
+        "generation_latency_ms",
+        "gold_answer",
+        "match_type",
+        "pillar",
+        "predicted_answer",
+        "probe_id",
+        "question",
+        "retrieved_context",
+        "score",
+        "search_latency_ms",
+        "subpillar",
+        "total_latency_ms"
+      ],
+      "recomputed": {
+        "by_answer_type": {
+          "abstain": {
+            "accuracy": 0.9518072289156626,
+            "count": 83,
+            "total": 79
+          },
+          "boolean": {
+            "accuracy": 0.7037037037037037,
+            "count": 27,
+            "total": 19
+          },
+          "generation": {
+            "accuracy": 0.25,
+            "count": 8,
+            "total": 2
+          },
+          "short_answer": {
+            "accuracy": 0.7177777777777777,
+            "count": 450,
+            "total": 323
+          },
+          "verbatim": {
+            "accuracy": 1.0,
+            "count": 21,
+            "total": 21
+          }
+        },
+        "by_pillar": {
+          "declarative_reasoning": {
+            "accuracy": 0.8712871287128713,
+            "count": 101,
+            "total": 88
+          },
+          "knowledge_boundaries": {
+            "accuracy": 0.9183673469387755,
+            "count": 98,
+            "total": 90
+          },
+          "preference_learning": {
+            "accuracy": 0.6185567010309279,
+            "count": 97,
+            "total": 60
+          },
+          "procedural_knowledge": {
+            "accuracy": 0.6526315789473685,
+            "count": 95,
+            "total": 62
+          },
+          "temporal_episodic": {
+            "accuracy": 0.6767676767676768,
+            "count": 99,
+            "total": 67
+          },
+          "world_modeling": {
+            "accuracy": 0.7777777777777778,
+            "count": 99,
+            "total": 77
+          }
+        },
+        "count": 589,
+        "overall_accuracy": 0.7538200339558574,
+        "total_score": 444
+      }
+    }
+  }
+}

@@ -1300,6 +1300,11 @@ def create_adapter(adapter_type: str, **kwargs) -> MemoryAdapter:
         "no_rag": NoRAGAdapter,
         "nebula": NebulaAdapter,
     }
+
+    if adapter_type == "mycelic_loop":
+        from .mycelic_loop import MycelicLoopAdapter
+
+        return MycelicLoopAdapter(**kwargs)
     
     if adapter_type not in adapters:
         raise ValueError(f"Unknown adapter type: {adapter_type}. Choose from: {list(adapters.keys())}")
