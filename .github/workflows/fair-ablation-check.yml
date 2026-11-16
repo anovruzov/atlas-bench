@@ -1,0 +1,24 @@
+name: Fair ATLAS ablation checks
+
+on:
+  push:
+    branches:
+      - "research/fair-ablation-*"
+  pull_request:
+    paths:
+      - "scripts/atlas_fair_ablation.py"
+      - "scripts/test_atlas_fair_ablation.py"
+      - ".github/workflows/fair-ablation-check.yml"
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile scripts
+        run: python -m compileall -q scripts/atlas_fair_ablation.py scripts/test_atlas_fair_ablation.py
+      - name: Unit checks (no paid models)
+        run: python scripts/test_atlas_fair_ablation.py
