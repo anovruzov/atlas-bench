@@ -1,0 +1,57 @@
+{
+  "run_id": "smoke_local_qwen1.5b",
+  "started_utc": "2026-11-16T12:05:28.192011+00:00",
+  "git": {
+    "sha": "dbe076344d191671939fd5e3671da291f0114607",
+    "branch": "mycelic-three-agent-loop",
+    "dirty": true
+  },
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v470-x86_64-with-glibc2.39",
+  "packages": {
+    "openai": "3.51.0",
+    "requests": "2.34.2",
+    "google-genai": null,
+    "rank_bm25": "0.2.2",
+    "fastembed": "0.9.1",
+    "chromadb": null,
+    "sentence-transformers": null,
+    "numpy": "2.5.3"
+  },
+  "llm_judge_enabled": false,
+  "judge_route": "heuristic",
+  "baseline_answer_model": "repo default: openrouter openai/gpt-4o (gemini gemini-2.5-flash if Google creds present)",
+  "mycelic_loop": {
+    "backend": "openai_compat",
+    "model": "qwen2.5-1.5b-instruct-q4_k_m",
+    "config": {
+      "embed_model": "BAAI/bge-small-en-v1.5",
+      "rrf_k": 60,
+      "turn_candidates": 40,
+      "max_sessions": 8,
+      "max_rounds": 2,
+      "temperature": 0.0,
+      "max_tokens": 500
+    },
+    "prompts_sha256": "3bdceb76ccd0a01711d98000b38fd2a9252a703c8ebcf274d9d83e59eae6a0b3"
+  },
+  "env_present": {
+    "OPENROUTER_API_KEY": false,
+    "GOOGLE_API_KEY": false,
+    "OPENAI_API_KEY": false
+  },
+  "data": {
+    "simple": {
+      "benchmark_nebula_devtools_010.json": "e61c35173321a86dda64cdd935cf0631926501dc430089cbc1203187a21e8959"
+    }
+  },
+  "runs": {
+    "mycelic_loop:simple": {
+      "file": "results_mycelic_loop_simple.json",
+      "sha256": "b01393afb00469fcf4483d4d602c5ab792228ccf49a3e2026703157284b1edff",
+      "score": 7.0,
+      "count": 13
+    }
+  },
+  "finished_utc": "2026-11-16T12:26:48.161898+00:00"
+}

@@ -28,7 +28,7 @@ from .evaluator import BenchmarkEvaluator, run_evaluation
 from .memory_adapters import create_adapter
 
 
-ADAPTER_TYPES = ["mem0", "supermemory", "naive_rag", "no_rag", "nebula"]
+ADAPTER_TYPES = ["mem0", "supermemory", "naive_rag", "no_rag", "nebula", "mycelic_loop"]
 
 
 def setup_environment():

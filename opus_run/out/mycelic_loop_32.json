@@ -1,0 +1,13 @@
+{
+ "simple/benchmark_nebula_healthtech_003|10": "Company name capitalized + current year + exclamation mark",
+ "simple/benchmark_nebula_devtools_035|10": "Performance",
+ "complex/benchmark_complex_047|10": "Sophia",
+ "simple/benchmark_nebula_devtools_044|10": "Company name (capital C and S) + current year (2024) + exclamation mark",
+ "simple/benchmark_nebula_fintech_034|10": "Capitalized company name + current year + exclamation mark",
+ "complex/benchmark_complex_010|10": "After",
+ "simple/benchmark_nebula_fintech_030|10": "Company name (capital L and F) + current year + exclamation mark",
+ "simple/benchmark_nebula_healthtech_002|10": "Company name capitalized + current year + exclamation mark",
+ "complex/benchmark_complex_003|10": "Deploying the beta to test models (managing his own deployments)",
+ "complex/benchmark_complex_020|10": "Data inconsistency",
+ "complex/benchmark_complex_008|10": "Cross-cloud hop: AnalyticsEngine9 on Azure while AnalyticsEngine6 and CacheLayer7 are on AWS"
+}

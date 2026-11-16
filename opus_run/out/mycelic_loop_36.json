@@ -1,0 +1,5 @@
+{
+ "simple/benchmark_nebula_edtech_041|12": "Reviewing the codebase and discussing the core platform architecture",
+ "complex/benchmark_complex_016|12": "Grabs coffee and reviews the infrastructure status/map (cloud hosting, load balancer versions, latency)",
+ "simple/benchmark_nebula_devtools_010|12": "It struggled with heavy computation (performance-critical tasks), making the API slow"
+}

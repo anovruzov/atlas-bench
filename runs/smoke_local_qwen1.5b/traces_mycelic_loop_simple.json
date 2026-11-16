@@ -1,0 +1,480 @@
+[
+ {
+  "question": "Which individual is repeatedly identified as the user's cofounder throughout the sessions?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Which individual is repeatedly identified as the user's cofounder throughout the sessions?"
+    ],
+    "sessions_shown": [
+     "llm-2",
+     "llm-0",
+     "llm-7",
+     "llm-5",
+     "llm-9",
+     "llm-4",
+     "llm-1",
+     "llm-6"
+    ],
+    "context_chars": 11344,
+    "draft": {
+     "answer": "Sato",
+     "sessions": [
+      "llm-0",
+      "llm-1",
+      "llm-2",
+      "llm-4",
+      "llm-5",
+      "llm-6",
+      "llm-7"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "Sato",
+     "reason": "The individual identified as the user's cofounder in all sessions is consistently referred to as 'Sato'."
+    }
+   }
+  ],
+  "final_answer": "Sato"
+ },
+ {
+  "question": "What is the professional relationship between the user and the person concerned about the API layer's speed?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "What is the professional relationship between the user and the person concerned about the API layer's speed?"
+    ],
+    "sessions_shown": [
+     "llm-4",
+     "llm-0",
+     "llm-1",
+     "llm-3",
+     "llm-7",
+     "llm-6",
+     "llm-2",
+     "llm-5"
+    ],
+    "context_chars": 11561,
+    "draft": {
+     "answer": "cofounder",
+     "sessions": [
+      "llm-0",
+      "llm-1",
+      "llm-2"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "cofounder",
+     "reason": "The user mentions the cofounder is complaining about compile times on the core module, indicating a professional relationship of co-founder."
+    }
+   }
+  ],
+  "final_answer": "cofounder"
+ },
+ {
+  "question": "Which framework used in the CodeStream core project is described as a systems language with a 'crab mascot'?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Which framework used in the CodeStream core project is described as a systems language with a 'crab mascot'?"
+    ],
+    "sessions_shown": [
+     "llm-3",
+     "llm-4",
+     "llm-0",
+     "llm-8",
+     "llm-5",
+     "llm-7",
+     "llm-6",
+     "llm-9"
+    ],
+    "context_chars": 11426,
+    "draft": {
+     "answer": "{\"answer\": \"Node.js\", \"sessions\": [\"llm-7\", \"llm-8\"], \"quote\": \"user: Did I leave my jacket at the office yesterday? assistant: I can't see physical objects, unfortunately, but I can remind you to che",
+     "sessions": [],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "Rust",
+     "reason": "The draft correctly identifies Rust as the systems language with a 'crab mascot' used in the CodeStream core project."
+    }
+   }
+  ],
+  "final_answer": "Rust"
+ },
+ {
+  "question": "Based on the rule 'Organization Name + Year + !', what is the password for the office wifi?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Based on the rule 'Organization Name + Year + !', what is the password for the office wifi?"
+    ],
+    "sessions_shown": [
+     "llm-7",
+     "llm-9",
+     "llm-2",
+     "llm-1",
+     "llm-5",
+     "llm-6",
+     "llm-8",
+     "llm-0"
+    ],
+    "context_chars": 10756,
+    "draft": {
+     "answer": "CodeStream2024!",
+     "sessions": [
+      "llm-1",
+      "llm-5"
+     ],
+     "quote": "user: I reset my phone and lost the saved networks. What's the office internet key again? assistant: It's pretty standard. Just our organization name, the current year, and an exclamation mark at the end.",
+     "llm-2": "user: Hey, good morning. Did you catch the game last night? assistant: Good morning! I missed it, actually. I was offline most of the evening. How was it?",
+     "llm-6": "user: Morning. I need to double-check something before the stand-up.",
+     "assistant": "Good morning. What's on your mind?"
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "CodeStream2024!",
+     "reason": "The draft answer is directly supported by the conversations and matches the rule 'Organization Name + Year + !'."
+    }
+   }
+  ],
+  "final_answer": "CodeStream2024!"
+ },
+ {
+  "question": "What specific technical concern does the cofounder Sato raise repeatedly across multiple sessions?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "What specific technical concern does the cofounder Sato raise repeatedly across multiple sessions?"
+    ],
+    "sessions_shown": [
+     "llm-6",
+     "llm-4",
+     "llm-9",
+     "llm-0",
+     "llm-2",
+     "llm-3",
+     "llm-1",
+     "llm-8"
+    ],
+    "context_chars": 11021,
+    "draft": {
+     "answer": "Backend performance",
+     "sessions": [],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "retrieve",
+     "search_query": "What specific technical concern does the cofounder Sato raise repeatedly across multiple sessions?",
+     "reason": "The question asks for a specific technical concern raised by Sato, but no direct conversation is provided that answers this directly. The closest related information is about backend performance in different sessions."
+    }
+   }
+  ],
+  "final_answer": "Backend performance"
+ },
+ {
+  "question": "In the session where the user requested a reminder to call the dentist, what office detail did they also ask about?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "In the session where the user requested a reminder to call the dentist, what office detail did they also ask about?"
+    ],
+    "sessions_shown": [
+     "llm-7",
+     "llm-3",
+     "llm-6",
+     "llm-9",
+     "llm-0",
+     "llm-8",
+     "llm-4",
+     "llm-2"
+    ],
+    "context_chars": 11133,
+    "draft": {
+     "answer": "office internet credentials",
+     "sessions": [
+      "llm-6",
+      "llm-7"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "office internet credentials",
+     "reason": "The draft answer is directly supported by the conversations and matches the information provided in session llm-6."
+    }
+   }
+  ],
+  "final_answer": "office internet credentials"
+ },
+ {
+  "question": "Did the user ask about their lost jacket before or after the conversation about the rain?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Did the user ask about their lost jacket before or after the conversation about the rain?"
+    ],
+    "sessions_shown": [
+     "llm-8",
+     "llm-4",
+     "llm-9",
+     "llm-1",
+     "llm-5",
+     "llm-0",
+     "llm-6",
+     "llm-3"
+    ],
+    "context_chars": 11314,
+    "draft": {
+     "answer": "Before",
+     "sessions": [],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "retrieve",
+     "reason": "The user asked about the lost jacket after discussing the rain, but the draft answer states it was before.",
+     "search_query": "Did the user ask about their lost jacket before or after the conversation about the rain?",
+     "final_answer": "Unknown"
+    }
+   }
+  ],
+  "final_answer": "Unknown"
+ },
+ {
+  "question": "Which aspect of the project does the user prioritize discussing: frontend UI or backend performance?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Which aspect of the project does the user prioritize discussing: frontend UI or backend performance?"
+    ],
+    "sessions_shown": [
+     "llm-6",
+     "llm-0",
+     "llm-7",
+     "llm-3",
+     "llm-2",
+     "llm-9",
+     "llm-8",
+     "llm-4"
+    ],
+    "context_chars": 11133,
+    "draft": {
+     "answer": "backend performance",
+     "sessions": [
+      "llm-0 | t=0",
+      "llm-2 | t=2",
+      "llm-3 | t=3"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "backend performance",
+     "reason": "The user mentions concerns about backend performance multiple times, including in the sessions llm-0 | t=0 and llm-3 | t=3."
+    }
+   }
+  ],
+  "final_answer": "backend performance"
+ },
+ {
+  "question": "Has the user explicitly requested the assistant to use a formal persona during their conversations?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Has the user explicitly requested the assistant to use a formal persona during their conversations?"
+    ],
+    "sessions_shown": [
+     "llm-9",
+     "llm-3",
+     "llm-1",
+     "llm-8",
+     "llm-0",
+     "llm-5",
+     "llm-6",
+     "llm-2"
+    ],
+    "context_chars": 10796,
+    "draft": {
+     "answer": "No",
+     "sessions": [
+      "llm-0",
+      "llm-1",
+      "llm-2",
+      "llm-3",
+      "llm-5",
+      "llm-6",
+      "llm-8"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "revise",
+     "final_answer": "Yes",
+     "reason": "The assistant's responses were not in a formal persona, which contradicts the user's request."
+    }
+   }
+  ],
+  "final_answer": "Yes"
+ },
+ {
+  "question": "What specific database technology is mentioned as part of the CodeStream core project stack?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "What specific database technology is mentioned as part of the CodeStream core project stack?"
+    ],
+    "sessions_shown": [
+     "llm-5",
+     "llm-9",
+     "llm-0",
+     "llm-3",
+     "llm-7",
+     "llm-6",
+     "llm-4",
+     "llm-8"
+    ],
+    "context_chars": 11426,
+    "draft": {
+     "answer": "Node.js",
+     "sessions": [
+      "llm-0 | t=0",
+      "llm-3 | t=3"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "Node.js",
+     "reason": "The draft answer is directly supported by the conversations and matches the information provided in the sessions."
+    }
+   }
+  ],
+  "final_answer": "Node.js"
+ },
+ {
+  "question": "Is the CodeStream core project built exclusively using the Rust programming language?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "Is the CodeStream core project built exclusively using the Rust programming language?"
+    ],
+    "sessions_shown": [
+     "llm-5",
+     "llm-6",
+     "llm-0",
+     "llm-7",
+     "llm-2",
+     "llm-3",
+     "llm-4",
+     "llm-9"
+    ],
+    "context_chars": 11496,
+    "draft": {
+     "answer": "No",
+     "sessions": [
+      "llm-0",
+      "llm-2",
+      "llm-3"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "No",
+     "reason": "The draft answer is directly supported by the conversations and does not contradict any information provided."
+    }
+   }
+  ],
+  "final_answer": "No"
+ },
+ {
+  "question": "What is the procedure described for constructing the organization's wifi password?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "What is the procedure described for constructing the organization's wifi password?"
+    ],
+    "sessions_shown": [
+     "llm-7",
+     "llm-5",
+     "llm-2",
+     "llm-9",
+     "llm-1",
+     "llm-8",
+     "llm-4",
+     "llm-6"
+    ],
+    "context_chars": 10871,
+    "draft": {
+     "answer": "The password is the company name, followed by 2024 and an exclamation point.",
+     "sessions": [
+      "llm-1",
+      "llm-2",
+      "llm-3",
+      "llm-5"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "The password is the company name, followed by 2024 and an exclamation point.",
+     "reason": "This answer directly matches the information provided in the conversations."
+    }
+   }
+  ],
+  "final_answer": "The password is the company name, followed by 2024 and an exclamation point."
+ },
+ {
+  "question": "According to the sessions, what technical limitation of Node.js necessitated the inclusion of Rust?",
+  "model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "rounds": [
+   {
+    "queries": [
+     "According to the sessions, what technical limitation of Node.js necessitated the inclusion of Rust?"
+    ],
+    "sessions_shown": [
+     "llm-3",
+     "llm-7",
+     "llm-0",
+     "llm-2",
+     "llm-5",
+     "llm-6",
+     "llm-9",
+     "llm-4"
+    ],
+    "context_chars": 11496,
+    "draft": {
+     "answer": "performance-critical components",
+     "sessions": [
+      "llm-2",
+      "llm-3"
+     ],
+     "quote": ""
+    },
+    "verifier": {
+     "verdict": "accept",
+     "final_answer": "performance-critical components",
+     "reason": "The draft is supported by the conversations and directly answers the question."
+    }
+   }
+  ],
+  "final_answer": "performance-critical components"
+ }
+]
