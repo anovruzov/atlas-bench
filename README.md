@@ -23,6 +23,17 @@ The paired bootstrap resamples whole worlds (10,000 draws, seed 0) to account fo
 
 Across all 100 worlds, including development, the loop scored **566/589 (96.1%)** on Simple and **472/503 (93.8%)** on Complex. Full context scored 90.5% and 89.3%. Naive RAG scored 78.1% and 70.8%.
 
+## Nebula on Zeroset's benchmark
+
+The test data and archived results match [Zeroset's upstream ATLAS commit](https://github.com/zeroset-inc/atlas/tree/dbe076344d191671939fd5e3671da291f0114607) byte for byte. On the same held-out probes, one blind Opus judge gave these scores to the saved answers.
+
+| Set | Mycelic loop | Published Nebula answers | Paired lift · 95% CI |
+| --- | ---: | ---: | ---: |
+| Simple | **452/469 (96.4%)** | 409/469 (87.2%) | **+9.2 pp** [+6.1, +12.4] |
+| Complex | **357/384 (93.0%)** | 296/384 (77.1%) | **+15.9 pp** [+10.6, +20.8] |
+
+Zeroset's original scores for Nebula were 82.0% on Simple and 71.0% on Complex across all probes. [Zeroset's write-up](https://zeroset.com/research/atlas-benchmark/) describes Gemini 2.5 Flash for answer generation and Gemini 3.0 Pro for scoring. The archived answer files lack per-run model metadata. Mycelic generated its answers with Opus. The table above compares archived answers under one judge. A live head-to-head result is pending.
+
 ## Verify the published numbers
 
 Run from a checkout with Python 3.10 or newer. This check uses the standard library and saved artifacts. It requires no API key or package installation.
@@ -42,10 +53,27 @@ The [original results commit](https://github.com/anovruzov/atlas-bench/tree/2513
 - **Three roles.** The retriever fuses BM25 and BGE-small rankings and returns up to eight dated conversation sessions in round one. The answerer cites evidence. The verifier checks support, recency, and entity scope and can request one additional retrieval round. This run used Claude Code batches in which one subagent executed the answerer and verifier roles.
 - **Controls.** Naive RAG retrieves ten turns with MiniLM. Full context supplies the entire world history. The arms share the answer model and judge but differ in prompts, evidence and batching. The experiment measures their combined effect. It has no verifier-only ablation or equal-compute control.
 - **Blind scoring.** ATLAS evaluates 1,092 probes across six memory dimensions. The judge receives the benchmark's rubric, reference, and predicted answer without system identity. Opus supplied both answers and verdicts, so shared model-family bias remains possible. The paper documents an execution caveat involving an agent that reported briefly seeing two scratch files from unrelated worlds.
-- **Published systems.** Saved Nebula, Supermemory, Mem0 and naive RAG answers were [re-scored with the Opus judge](judge/RESCORED.md). Their answer models and run settings cannot be verified from the published artifacts, so these scores support a rescoring comparison only.
+- **Published systems.** Saved Nebula, Supermemory, Mem0 and naive RAG answers were [re-scored with the Opus judge](judge/RESCORED.md).
 - **Implementation scope.** The benchmark used a NeuralGraph-inspired Python prototype. Production NeuralGraph, retrieval latency, and end-to-end latency are outside the measured scope.
 
 ## Run new evaluations
+
+### Live Nebula comparison
+
+The [head-to-head runner](scripts/atlas_head_to_head.py) uses one Nebula v2 collection per synthetic world and waits for indexing. Both systems answer with the same explicitly selected OpenRouter model and provider. A separate blind model judges both systems with the ATLAS rubric. The comparison measures the complete pipelines, including Mycelic's verifier and extra calls.
+
+Set `NEBULA_API_KEY`, `NEBULA_WORKSPACE_ID`, and `OPENROUTER_API_KEY` in your local environment. The Nebula key needs read, write, and collection creation access in the selected workspace.
+
+```bash
+python -m pip install requests rank_bm25 fastembed
+python scripts/atlas_head_to_head.py atlas_nebula_smoke --smoke \
+  --answer-model openai/gpt-4.1 --answer-provider openai \
+  --judge-model anthropic/claude-sonnet-4.5 --judge-provider anthropic
+```
+
+The smoke run uses one development world per set. For the full comparison, remove `--smoke` and use a new run ID with the same model settings. The runner writes a manifest, per-probe artifacts and `head_to_head.json` under `runs/head_to_head/<run_id>/`. Rerun with the same ID and settings to resume after the last complete world. It reports a positive result on both held-out sets only when both world-clustered 95% intervals have a positive lower bound.
+
+### Standard ATLAS and OpenRouter experiments
 
 ```bash
 python -m pip install -r requirements.txt rank_bm25 fastembed

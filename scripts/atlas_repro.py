@@ -15,7 +15,7 @@ Rules this script enforces:
     (allowed for prompt/config development), the remaining 40 are HELD-OUT.
     Both are always reported separately.
   * A "beats" verdict is printed only if (a) the run's naive_rag reproduces the
-    published naive_rag within its 95% CI (same answer model + judge setup),
+    published naive_rag within its 95% CI (an archived-score check),
     and (b) the lower bound of the paired 95% CI of (ours - published) is > 0
     on the held-out files. Otherwise the verdict says why not.
 """
@@ -242,7 +242,7 @@ def cmd_compare(a: argparse.Namespace) -> None:
         if calib_ok is None:
             verdict = "NO CLAIM: naive_rag was not re-run, so the setup is not calibrated against the published runs."
         elif not calib_ok:
-            verdict = "NO CLAIM: our naive_rag does not reproduce the published naive_rag; answer model/judge setup differs."
+            verdict = "NO CLAIM: our naive_rag score does not reproduce the published naive_rag score."
         elif neb["n"] and neb["ci95"][0] > 0:
             verdict = f"BEATS published Nebula on held-out files: +{neb['diff']*100:.1f} pts (95% CI {neb['ci95'][0]*100:+.1f} to {neb['ci95'][1]*100:+.1f}), McNemar p={neb['mcnemar_p']:.3g}."
         else:

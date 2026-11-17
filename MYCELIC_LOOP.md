@@ -17,7 +17,7 @@ and applies the same system-blind Opus judge to saved answers.
 | Single blind Opus judge over all published answers (`judge/`) | **Done**; ranking preserved, every system gains 2–7 points |
 | Opus-answered run: loop + naive_rag + full-context controls (`opus_run/`) | **Done**; loop scores 96.1% simple and 93.8% complex |
 | Paper with method, results and limitations | **Done**: `paper/atlas_mycelic.pdf` |
-| Scored run with the published answer model (GPT-4o via OpenRouter) | **Not run.** It needs an `OPENROUTER_API_KEY` |
+| Live comparison with Nebula v2 and the same answer model and judge | Runner available at `scripts/atlas_head_to_head.py`. Live run pending. |
 | Claim that Mycelic's *memory system* beats Nebula's | **Not made.** The answer models differ, and full-context Opus alone already beats published Nebula |
 
 ### Results under one blind Opus judge

@@ -16,8 +16,8 @@ Honesty constraints (enforced by construction):
     like every other adapter. It never sees gold answers, answer_type,
     pillar, or supporting_items.
   * Scoring is untouched: the evaluator's own judge in metrics.py scores it.
-  * The answer model is configurable; for comparisons with the published runs
-    use the repo default (OpenRouter openai/gpt-4o), the same as the baselines.
+  * The answer model is configurable. A controlled comparison needs the same
+    answer model and judge for each arm.
   * Every probe's full trace (queries, sessions used, drafts, verdicts, context
     size) is kept in `self.traces` and written into the results JSON.
 """

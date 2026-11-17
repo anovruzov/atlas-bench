@@ -21,7 +21,7 @@ and a Three-Agent Retrieve--Answer--Verify Loop}
 \maketitle
 
 \begin{abstract}
-ATLAS is a public benchmark for agentic memory systems: 1{,}092 probes over 100 synthetic multi-session worlds, scored by an LLM judge. Its published results rank Nebula first (82.0\% simple, 71.0\% complex). We audit those results and find the arithmetic exact. However, the files do not record the answer model, the judge model, or the code version, and the judge is inconsistent: identical ``Unknown''/``Unknown'' pairs were marked wrong in 31 of 65 cases. We re-score every published answer with a single judge (Claude Opus) that is blind to which system wrote the answer and uses the benchmark's own judge prompts. The ranking is preserved, and all systems gain 2--7 points. We then evaluate a three-agent memory loop: a deterministic hybrid retriever, an Answerer, and a Verifier that can trigger a second retrieval round. With Opus as the answer model it reaches 96.1\% (simple) and 93.8\% (complex). Two controls use the same answer model and the same judge. Against naive RAG the loop gains +19.0 and +21.1 points on held-out files. Against putting the full history in context it gains +7.5 points on simple (95\% CI +1.5 to +14.8) and +4.2 points on complex, which is not significant (CI $-1.6$ to $+11.6$), while using about 31\% of the full-history context on complex. Because the published systems answered with GPT-4o-class models, and full-context Opus alone already exceeds the published Nebula scores, we do \emph{not} claim that our memory system outperforms Nebula's memory system. We release all prompts, retrieval code, per-probe answers, traces and verdicts.
+ATLAS is a public benchmark for agentic memory systems: 1{,}092 probes over 100 synthetic multi-session worlds, scored by an LLM judge. Its published results rank Nebula first (82.0\% simple, 71.0\% complex). We audit those results and find the arithmetic exact. However, the files do not record the answer model, the judge model, or the code version, and the judge is inconsistent: identical ``Unknown''/``Unknown'' pairs were marked wrong in 31 of 65 cases. We re-score every published answer with a single judge (Claude Opus) that is blind to which system wrote the answer and uses the benchmark's own judge prompts. The ranking is preserved, and all systems gain 2--7 points. We then evaluate a three-agent memory loop: a deterministic hybrid retriever, an Answerer, and a Verifier that can trigger a second retrieval round. With Opus as the answer model it reaches 96.1\% (simple) and 93.8\% (complex). Two controls use the same answer model and the same judge. Against naive RAG the loop gains +19.0 and +21.1 points on held-out files. Against putting the full history in context it gains +7.5 points on simple (95\% CI +1.5 to +14.8) and +4.2 points on complex, which is not significant (CI $-1.6$ to $+11.6$), while using about 31\% of the full-history context on complex. Zeroset documents Gemini 2.5 Flash as the answer model in its evaluation protocol; the archived files do not identify the model per run. The shared-judge comparison with Nebula therefore compares archived answers across different answer-model setups. We release all prompts, retrieval code, per-probe answers, traces and verdicts.
 \end{abstract}
 
 \section{Introduction}
@@ -115,7 +115,7 @@ Over 1{,}092 probes the Verifier accepted 878 first-round drafts, revised 2 and 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{fig_overall.pdf}
-\caption{Accuracy under one blind Opus judge. Error bars: 95\% file-clustered bootstrap CIs. Systems left of the dashed line share the answer model (Opus). Systems to the right are published answers from GPT-4o-class models.}
+\caption{Accuracy under one blind Opus judge. Error bars: 95\% file-clustered bootstrap CIs. Systems left of the dashed line share the answer model (Opus). Systems to the right are archived answers with unverified per-run answer models.}
 \label{fig:overall}
 \end{figure}
 
@@ -162,7 +162,7 @@ Table~\ref{tab:main} and Figure~\ref{fig:overall} give overall accuracy, and Tab
 
 \paragraph{Effect of the loop at a fixed answer model.} With Opus fixed, the loop improves on naive RAG by about 20 points on both sets. It also improves on full context on simple. On complex the difference from full context is not significant, but the loop shows the evidence model about 31\% of the characters. Figure~\ref{fig:pillars} shows the largest complex-set gains over naive RAG on temporal/episodic questions (86.7 vs.\ 39.8), preference learning (97.3 vs.\ 62.7) and procedural knowledge (94.7 vs.\ 64.0).
 
-\paragraph{Comparison with published systems.} The loop exceeds Nebula's published answers by 9.2 points on simple and 15.9 on complex (held-out). This comparison is \emph{confounded by the answer model}. Full-context Opus, with no memory system at all, already scores 90.5/89.3, above Nebula's 87.3/76.9. Naive RAG with Opus (78.1/70.8) scores below Nebula, which indicates that Nebula's retrieval is substantially stronger than naive RAG.
+\paragraph{Comparison with published systems.} The loop exceeds Nebula's published answers by 9.2 points on simple and 15.9 on complex (held-out). This comparison is \emph{confounded by the answer model}. Full-context Opus, with no memory system at all, already scores 90.5/89.3, above Nebula's 87.3/76.9. Naive RAG with Opus (78.1/70.8) scores below the archived Nebula answers. The archive does not isolate retrieval effects.
 
 \paragraph{Weakness.} On complex-set knowledge-boundary probes, the loop (87.8\%) scores below both Nebula (93.3\%) and full context (90.0\%). We have not yet analysed the cause. One hypothesis is that showing whole sessions makes it easier to answer from loosely related context when the correct answer is ``Unknown''.
 
@@ -192,7 +192,7 @@ A single blind judge preserves the published ATLAS ranking and removes judge noi
 
 \bibliographystyle{plainnat}
 \begin{thebibliography}{9}
-\bibitem[Nebula(2026)]{atlas2026} Nebula. \newblock {ATLAS}: Cognitive-based benchmarking for agentic memory systems. \newblock Software and data, 2026.
+\bibitem[Nebula(2026)]{atlas2026} Zeroset. \newblock {ATLAS} v0: Beyond retrieval benchmarking for agent memory. \newblock \url{https://zeroset.com/research/atlas-benchmark/}, 2026.
 \bibitem[Robertson and Zaragoza(2009)]{robertson2009bm25} S.~Robertson and H.~Zaragoza. \newblock The probabilistic relevance framework: {BM25} and beyond. \newblock \emph{Foundations and Trends in Information Retrieval}, 3(4):333--389, 2009.
 \bibitem[Cormack et~al.(2009)]{cormack2009rrf} G.~V. Cormack, C.~L.~A. Clarke, and S.~B{\"u}ttcher. \newblock Reciprocal rank fusion outperforms {Condorcet} and individual rank learning methods. \newblock In \emph{SIGIR}, 2009.
 \bibitem[Xiao et~al.(2023)]{xiao2023cpack} S.~Xiao, Z.~Liu, P.~Zhang, and N.~Muennighoff. \newblock {C-Pack}: Packaged resources to advance general {Chinese} embedding. \newblock arXiv:2309.07597, 2023.
