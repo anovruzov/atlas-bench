@@ -1,9 +1,10 @@
 # Mycelic three-agent loop on ATLAS
 
-This branch adds a memory adapter (`mycelic_loop`) and a reproducible harness
-(`scripts/atlas_repro.py`). They run Mycelic's three-agent loop on ATLAS and
-compare it with the published Nebula, Supermemory, Mem0 and naive RAG results,
-without changing the benchmark, its test sets, or its judge.
+This repository contains the Mycelic memory adapter (`mycelic_loop`),
+the archived Claude Opus experiment and its controls, and the separate
+OpenRouter GPT-4o harness (`scripts/atlas_repro.py`). Both experiments
+use the ATLAS test sets. The Opus experiment uses ATLAS judge prompts
+and applies the same system-blind Opus judge to saved answers.
 
 ## Status
 
@@ -40,7 +41,9 @@ Paired differences on the 40 held-out files, using the same Opus answer model:
 
 On complex the loop reads about 31% of the full-history characters.
 
-- **Paired statistics:** `opus_run/COMPARISON.md`.
+- **Paired statistics:** [comparison tables](opus_run/COMPARISON.md).
+  Run `python -B scripts/opus_compare.py --check` to verify and recompute
+  the archived comparison from saved answers and verdicts without model access.
 - **Reproduce:** run `scripts/opus_packets.py` (index → packets → serve → assemble), then `scripts/opus_judge.py` (prepare → judge → apply), then `scripts/opus_compare.py`.
 
 ## The loop
@@ -65,23 +68,25 @@ On complex the loop reads about 31% of the full-history characters.
 The whole trace for every probe is saved to `runs/<id>/traces_*.json`. That
 covers the queries, sessions shown, context size, draft, and verdict.
 
-## Honesty rules (enforced in code)
+## OpenRouter harness protocol
 
 - **Same inputs as every other adapter.** The adapter receives only the sessions
   and the question. It never sees the gold answer, answer type, pillar, or
   supporting items.
-- **Judge untouched.** Scoring uses the repo's own `metrics.py` judge prompt and
-  routing, unchanged.
+- **Judge routing.** The OpenRouter harness runs the provider routing and prompts
+  in `metrics.py`. The archived Opus experiment used the same prompts with Opus.
 - **Dev/held-out split.** Files are sorted by name; the first 10 per set are DEV
   and may be used to tune prompts or config. The other 40 are HELD-OUT. Results
   are always reported for both.
 - **Calibration gate.** `run` re-runs `naive_rag` under the same keys. `compare`
-  claims nothing unless that re-run reproduces the published naive_rag within
-  its 95% CI, which is evidence that our answer model and judge match the
-  published setup.
-- **Claim threshold.** A BEATS verdict needs the lower bound of the paired,
-  file-clustered bootstrap 95% CI of (ours − published Nebula) to be above 0 on
-  the held-out files. McNemar's exact p-value is reported next to it.
+  checks whether that score falls within the published naive RAG score's 95%
+  interval. The published artifacts leave model and judge identity unverified
+  even when the gate passes.
+- **Archived comparison threshold.** The harness's `BEATS` label requires
+  a passing calibration gate and a positive lower bound for the paired,
+  file-clustered bootstrap 95% CI of (ours − published Nebula) on held-out
+  files. Any such label describes an archived-score comparison. A controlled
+  memory-system comparison requires rerunning both systems with matched settings.
 - **Full-context control is always run.** One complex file is about 9k tokens,
   so the whole history fits in GPT-4o's context window. `no_rag` puts every
   session in the prompt and is part of the default run. Any memory-system
