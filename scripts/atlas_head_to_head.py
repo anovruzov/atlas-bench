@@ -162,21 +162,14 @@ def world_answers(mycelic, nebula, answer, test_set, world_path):
         theirs = answer(NEBULA_ANSWER, f"Memories:\n{context}\n\nQuestion: {question}")
         other_elapsed_ms = round((time.monotonic() - other_start) * 1000, 3)
         other_calls = MODEL_CALL_EVENTS[other_call_idx:]
-        full_context = "
-
-".join(
-            f"[Session {session[\"id\"]} | t={session[\"timestamp\"]}]
-" + "
-".join(
-                f"{turn.get(\"speaker\", \"user\")}: {turn.get(\"text\", \"\")}" for turn in session["turns"]
-            ) for session in sorted(sessions, key=lambda s: s["timestamp"])
+        full_context = "\n\n".join(
+            f"[Session {session['id']} | t={session['timestamp']}]\n" + "\n".join(
+                f"{turn.get('speaker', 'user')}: {turn.get('text', '')}" for turn in session["turns"]
+            ) for session in sorted(sessions, key=lambda item: item["timestamp"])
         )
         full_start = time.monotonic()
         full_call_idx = len(MODEL_CALL_EVENTS)
-        full_answer = answer(FULL_CONTEXT_ANSWER, f"Conversations:
-{full_context}
-
-Question: {question}")
+        full_answer = answer(FULL_CONTEXT_ANSWER, f"Conversations:\n{full_context}\n\nQuestion: {question}")
         full_elapsed_ms = round((time.monotonic() - full_start) * 1000, 3)
         full_calls = MODEL_CALL_EVENTS[full_call_idx:]
         rows.append({
