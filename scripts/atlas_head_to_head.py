@@ -300,7 +300,7 @@ def main():
             summary[name] = ar.paired(arms["mycelic_loop"], arms["nebula"], name, "all")
         summary["resource_accounting_note"] = "Per-probe resources and provider-reported tokens are stored in each simple_*.json / complex_*.json; judge usage is not included in those arm resources. Model calls, total context, ingestion and latency are not equalized across arms."
         summary["positive_on_both_heldout_sets"] = (
-            None if args.smoke else all(entry["ci95"][0] > 0 for entry in summary.values())
+            None if args.smoke else all(summary[name]["ci95"][0] > 0 for name in files)
         )
         write_json(out / "head_to_head.json", summary)
         print(json.dumps(summary, indent=2))
