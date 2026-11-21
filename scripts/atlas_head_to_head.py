@@ -17,6 +17,7 @@ import requests
 
 import atlas_repro as ar
 from opus_judge import build_prompt
+from atlas_efficiency import summarize_directory
 
 NEBULA_API = "https://api.zeroset.com"
 OPENROUTER_API = "https://openrouter.ai/api/v1/chat/completions"
@@ -120,11 +121,28 @@ def completion(http, model, provider, system, user, max_tokens):
     if choice["finish_reason"] != "stop" or not isinstance(content, str) or not content.strip():
         raise ValueError(f"Incomplete response from {model} via {provider}")
     usage = data.get("usage") or {}
+    prompt_details = usage.get("prompt_tokens_details") or {}
+    # OpenRouter/provider schemas differ. Missing cached/cost fields remain null.
+    cached = prompt_details.get("cached_tokens")
+    if cached is None:
+        cached = usage.get("cache_read_input_tokens")
+    written = usage.get("cache_creation_input_tokens")
+    if written is None:
+        written = prompt_details.get("cache_write_tokens")
+    cost = usage.get("cost")
+    if cost is None:
+        cost = usage.get("total_cost")
+    if not isinstance(cost, (int, float)) or isinstance(cost, bool):
+        cost = None
     MODEL_CALL_EVENTS.append({
         "model": model, "provider": provider, "elapsed_ms": round((time.monotonic() - started) * 1000, 3),
         "prompt_tokens": usage.get("prompt_tokens"),
         "completion_tokens": usage.get("completion_tokens"),
         "total_tokens": usage.get("total_tokens"),
+        "cached_prompt_tokens": cached,
+        "cache_write_tokens": written,
+        "cost_usd": cost,
+        "reported_model": data.get("model"),
         "max_completion_tokens": max_tokens,
     })
     return content.strip()
@@ -140,9 +158,13 @@ def write_json(path, data):
 def world_answers(mycelic, nebula, answer, test_set, world_path):
     world = json.loads(world_path.read_text())
     sessions = world["sessions"]
+    index_start = time.monotonic()
     mycelic.ingest_sessions(sessions)
+    mycelic_index_ms = round((time.monotonic() - index_start) * 1000, 3)
     mycelic.traces.clear()
+    ingest_start = time.monotonic()
     collection = nebula.collection(test_set, world_path.stem, sessions)
+    nebula_ingest_ms = round((time.monotonic() - ingest_start) * 1000, 3)
     rows = []
     for probe in world["probes"]:
         question = probe["question"]
@@ -178,11 +200,16 @@ def world_answers(mycelic, nebula, answer, test_set, world_path):
             "answers": {"mycelic_loop": ours, "nebula": theirs, "full_context": full_answer},
             "nebula_hits": hits, "mycelic_trace": mycelic.traces[-1],
             "resources": {
-                "mycelic_loop": {"elapsed_ms": own_elapsed_ms, "model_calls": own_calls, "model_call_count": len(own_calls), "search_calls": len(mycelic.traces[-1]["rounds"])},
-                "nebula": {"search_elapsed_ms": nebula_search_ms, "answer_elapsed_ms": other_elapsed_ms, "model_calls": other_calls, "model_call_count": len(other_calls), "search_calls": 1, "retrieved_context_chars": len(context)},
-                "full_context": {"elapsed_ms": full_elapsed_ms, "model_calls": full_calls, "model_call_count": len(full_calls), "search_calls": 0, "context_chars": len(full_context)},
+                "mycelic_loop": {"elapsed_ms": own_elapsed_ms, "end_to_end_ms": own_elapsed_ms, "model_calls": own_calls, "model_call_count": len(own_calls), "search_calls": len(mycelic.traces[-1]["rounds"])},
+                "nebula": {"search_elapsed_ms": nebula_search_ms, "answer_elapsed_ms": other_elapsed_ms, "end_to_end_ms": round(nebula_search_ms + other_elapsed_ms, 3), "model_calls": other_calls, "model_call_count": len(other_calls), "search_calls": 1, "retrieved_context_chars": len(context)},
+                "full_context": {"elapsed_ms": full_elapsed_ms, "end_to_end_ms": full_elapsed_ms, "model_calls": full_calls, "model_call_count": len(full_calls), "search_calls": 0, "context_chars": len(full_context)},
             },
         })
+    if rows:
+        rows[0]["world_ingestion_ms"] = {
+            "mycelic_indexing": mycelic_index_ms,
+            "nebula_ingestion_and_index_ready": nebula_ingest_ms,
+        }
     return rows
 
 
@@ -317,7 +344,9 @@ def main():
         summary["positive_on_both_heldout_sets"] = (
             None if args.smoke else all(summary["primary_vs_live_nebula"][name]["ci95"][0] > 0 for name in files)
         )
+        summary["efficiency"] = summarize_directory(out)
         write_json(out / "head_to_head.json", summary)
+        write_json(out / "efficiency.json", summary["efficiency"])
         print(json.dumps(summary, indent=2))
 
 
