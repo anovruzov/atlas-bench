@@ -228,9 +228,11 @@ def world_answers(mycelic, nebula, answer, test_set, world_path, rust=None):
         question = probe["question"]
         own_start = time.monotonic()
         own_call_idx = len(MODEL_CALL_EVENTS)
+        own_retrieval_idx = len(mycelic.retrieval_events)
         ours = mycelic.generate_answer(question, [])
         own_elapsed_ms = round((time.monotonic() - own_start) * 1000, 3)
         own_calls = MODEL_CALL_EVENTS[own_call_idx:]
+        own_retrieval = mycelic.retrieval_events[own_retrieval_idx:]
         search_start = time.monotonic()
         hits = nebula.search(collection, question)
         nebula_search_ms = round((time.monotonic() - search_start) * 1000, 3)
@@ -272,7 +274,7 @@ def world_answers(mycelic, nebula, answer, test_set, world_path, rust=None):
             "answers": {"mycelic_loop": ours, "nebula": theirs, "full_context": full_answer},
             "nebula_hits": hits, "mycelic_trace": mycelic.traces[-1],
             "resources": {
-                "mycelic_loop": {"elapsed_ms": own_elapsed_ms, "end_to_end_ms": own_elapsed_ms, "model_calls": own_calls, "model_call_count": len(own_calls), "search_calls": len(mycelic.traces[-1]["rounds"])},
+                "mycelic_loop": {"elapsed_ms": own_elapsed_ms, "end_to_end_ms": own_elapsed_ms, "retrieval_ms": round(sum(own_retrieval), 3), "retrieval_calls": len(own_retrieval), "model_calls": own_calls, "model_call_count": len(own_calls), "search_calls": len(mycelic.traces[-1]["rounds"])},
                 "nebula": {"search_elapsed_ms": nebula_search_ms, "answer_elapsed_ms": other_elapsed_ms, "end_to_end_ms": round(nebula_search_ms + other_elapsed_ms, 3), "model_calls": other_calls, "model_call_count": len(other_calls), "search_calls": 1, "retrieved_context_chars": len(context)},
                 "full_context": {"elapsed_ms": full_elapsed_ms, "end_to_end_ms": full_elapsed_ms, "model_calls": full_calls, "model_call_count": len(full_calls), "search_calls": 0, "context_chars": len(full_context)},
             },
@@ -370,6 +372,14 @@ def main():
             def _llm(self, system, user):
                 return answer(system, user)
 
+            def _retrieve_sessions(self, queries):
+                started = time.monotonic()
+                result = super()._retrieve_sessions(queries)
+                if not hasattr(self, "retrieval_events"):
+                    self.retrieval_events = []
+                self.retrieval_events.append(round((time.monotonic() - started) * 1000, 3))
+                return result
+
         files = {
             name: ar.files_for(name)[:1] if args.smoke else ar.files_for(name)[ar.DEV_FILES:]
             for name in ar.SETS
@@ -428,6 +438,7 @@ def main():
                     pending.append((name, path, artifact))
         if pending:
             mycelic = MatchedMycelic()
+            mycelic.retrieval_events = []
             mycelic.model = args.answer_model
             for name, path, artifact in pending:
                 print(f"{name}: {path.stem}", flush=True)
