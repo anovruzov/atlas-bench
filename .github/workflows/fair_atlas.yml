@@ -1,0 +1,23 @@
+name: Fair ATLAS offline checks
+on:
+  pull_request:
+  push:
+    branches:
+      - eval/fair-live-atlas-nov2026
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install lightweight dependencies
+        run: python -m pip install requests
+      - name: Syntax-check prospective runner
+        run: python -m py_compile scripts/atlas_head_to_head.py scripts/atlas_repro.py
+      - name: Run credential-free tests
+        run: python -m unittest discover -s tests -p 'test_fair_*.py' -v
+      - name: Verify the README is intentionally empty
+        run: test ! -s README.md
