@@ -37,6 +37,11 @@ def summarize_rows(rows):
         selected = [row for row in rows if arm in row.get("resources", {})]
         durations = [row["resources"][arm].get("end_to_end_ms") for row in selected]
         durations = [v for v in durations if isinstance(v, (int, float))]
+        retrievals = [
+            row["resources"][arm].get("retrieval_ms", row["resources"][arm].get("search_elapsed_ms"))
+            for row in selected
+        ]
+        retrievals = [v for v in retrievals if isinstance(v, (int, float))]
         all_calls = [
             c for row in selected for c in row["resources"][arm].get("model_calls", [])
         ]
@@ -55,6 +60,11 @@ def summarize_rows(rows):
                 "p95": percentile(durations, 0.95),
                 "measured_probes": len(durations),
                 "definition": "serial retrieval + model calls, excludes once-per-world ingestion and indexing",
+            },
+            "retrieval_latency_ms": {
+                "p50": percentile(retrievals, 0.50),
+                "p95": percentile(retrievals, 0.95),
+                "measured_probes": len(retrievals),
             },
             "model_calls": calls,
             "mean_model_calls_per_probe": round(calls / len(selected), 4) if selected else None,
